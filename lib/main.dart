@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_and_series/logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import 'package:movies_and_series/presentation/pages/home_page_build.dart';
 
 import 'logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<MovieRatingBloc>(
           create: (context) => MovieRatingBloc()..add(MovieRatingLoad()),
+        ),
+        BlocProvider<MoviePopularityBloc>(
+          create: (context) =>
+              MoviePopularityBloc()..add(MoviePopularityLoad()),
         ),
       ],
       child: MaterialApp(

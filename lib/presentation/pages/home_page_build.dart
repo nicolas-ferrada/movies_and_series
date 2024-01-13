@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/media.dart';
 import '../../logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import '../../logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
+import '../../logic/blocs/series_rating_bloc/series_rating_bloc.dart';
 import 'home_page.dart';
 
 class HomePageBuild extends StatelessWidget {
@@ -15,19 +16,23 @@ class HomePageBuild extends StatelessWidget {
       builder: (context) {
         final movieRatingState = context.watch<MovieRatingBloc>().state;
         final moviePopularityState = context.watch<MoviePopularityBloc>().state;
+        final seriesRatingState = context.watch<SeriesRatingBloc>().state;
 
         if (movieRatingState is MovieRatingLoading ||
-            moviePopularityState is MoviePopularityLoading) {
+            moviePopularityState is MoviePopularityLoading ||
+            seriesRatingState is SeriesRatingLoading) {
           return const Scaffold(
             body: Center(
               child: CircularProgressIndicator(),
             ),
           );
         } else if (movieRatingState is MovieRatingLoaded &&
-            moviePopularityState is MoviePopularityLoaded) {
+            moviePopularityState is MoviePopularityLoaded &&
+            seriesRatingState is SeriesRatingLoaded) {
           final List<Media> mediaList = [
             ...movieRatingState.ratingMovieList,
             ...moviePopularityState.popularityMovieList,
+            ...seriesRatingState.ratingSeriesList,
           ];
           return HomePage(
             mediaList: mediaList,
@@ -42,6 +47,12 @@ class HomePageBuild extends StatelessWidget {
           return Scaffold(
             body: Center(
               child: Text('Error: ${moviePopularityState.errorMessage}'),
+            ),
+          );
+        } else if (seriesRatingState is SeriesRatingError) {
+          return Scaffold(
+            body: Center(
+              child: Text('Error: ${seriesRatingState.errorMessage}'),
             ),
           );
         }

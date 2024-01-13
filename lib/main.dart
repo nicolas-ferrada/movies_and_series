@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_and_series/presentation/pages/home_page_build.dart';
 
 import 'logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
-import 'presentation/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -8,10 +8,10 @@ part 'movie_rating_state.dart';
 
 class MovieRatingBloc extends Bloc<MovieRatingEvent, MovieRatingState> {
   MovieRatingBloc() : super(MovieRatingInitial()) {
-    on<MovieRatingLoad>(_onMovieRatingLoad);
+    on<MovieRatingLoad>(_onLoad);
   }
 
-  void _onMovieRatingLoad(
+  void _onLoad(
     MovieRatingLoad event,
     Emitter<MovieRatingState> emit,
   ) async {

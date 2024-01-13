@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../data/models/media.dart';
+
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final List<Media> mediaList;
+  const HomePage({
+    super.key,
+    required this.mediaList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +26,10 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: mediaList.length,
                   itemBuilder: (context, index) {
-                    return const ListTile(
-                      title: Text('Title'),
-                      subtitle: Text('Subtitle'),
+                    return ListTile(
+                      title: Text(mediaList[index].name),
                     );
                   },
                 ),

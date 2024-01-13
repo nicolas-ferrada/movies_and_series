@@ -19,7 +19,9 @@ class HomePageBuild extends StatelessWidget {
             ),
           );
         } else if (movieRatingState is MovieRatingLoaded) {
-          return HomePage();
+          return HomePage(
+            mediaList: movieRatingState.ratingMovieList,
+          );
         } else if (movieRatingState is MovieRatingError) {
           return Center(
             child: Text('Error: ${movieRatingState.errorMessage}'),

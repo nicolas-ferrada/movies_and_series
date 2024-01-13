@@ -8,6 +8,7 @@ class Movie extends Media {
     required super.releaseDate,
     required super.rating,
     required super.rateCount,
+    required super.popularity,
     required super.posterPath,
     required super.backdropPath,
   });
@@ -21,6 +22,7 @@ class Movie extends Media {
       releaseDate,
       rating,
       rateCount,
+      popularity,
       posterPath,
       backdropPath,
     ];

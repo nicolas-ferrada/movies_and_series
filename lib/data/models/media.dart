@@ -7,6 +7,7 @@ abstract class Media extends Equatable {
   final String releaseDate;
   final double rating;
   final int rateCount;
+  final int popularity;
   final String posterPath;
   final String backdropPath;
 
@@ -17,6 +18,7 @@ abstract class Media extends Equatable {
     required this.releaseDate,
     required this.rating,
     required this.rateCount,
+    required this.popularity,
     required this.posterPath,
     required this.backdropPath,
   });

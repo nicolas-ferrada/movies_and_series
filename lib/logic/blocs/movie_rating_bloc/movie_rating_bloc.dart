@@ -8,9 +8,9 @@ part 'movie_rating_event.dart';
 part 'movie_rating_state.dart';
 
 class MovieRatingBloc extends Bloc<MovieRatingEvent, MovieRatingState> {
-  final MovieRatingRepository movieRatingRepository;
+  final MovieRatingRepository repository;
   MovieRatingBloc({
-    required this.movieRatingRepository,
+    required this.repository,
   }) : super(MovieRatingInitial()) {
     on<MovieRatingLoad>(_onLoad);
   }
@@ -21,7 +21,7 @@ class MovieRatingBloc extends Bloc<MovieRatingEvent, MovieRatingState> {
   ) async {
     try {
       emit(MovieRatingLoading());
-      List<Movie> movieList = await movieRatingRepository.getTopRatedMovies();
+      List<Movie> movieList = await repository.getTopRatedMovies();
       emit(MovieRatingLoaded(ratingMovieList: movieList));
     } catch (e) {
       emit(MovieRatingError(errorMessage: e.toString()));

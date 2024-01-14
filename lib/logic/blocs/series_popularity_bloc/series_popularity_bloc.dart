@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movies_and_series/data/repositories/series_popularity_repository.dart';
 
 import '../../../data/models/series.dart';
 
@@ -8,7 +9,10 @@ part 'series_popularity_state.dart';
 
 class SeriesPopularityBloc
     extends Bloc<SeriesPopularityEvent, SeriesPopularityState> {
-  SeriesPopularityBloc() : super(SeriesPopularityInitial()) {
+  final SeriesPopularityRepository repository;
+  SeriesPopularityBloc({
+    required this.repository,
+  }) : super(SeriesPopularityInitial()) {
     on<SeriesPopularityLoad>(_onLoad);
   }
 
@@ -17,31 +21,8 @@ class SeriesPopularityBloc
     Emitter<SeriesPopularityState> emit,
   ) async {
     emit(SeriesPopularityLoading());
-    await Future.delayed(const Duration(seconds: 2)); // api call simulation
-    final List<Series> popularitySeriesList = [
-      const Series(
-        id: 110,
-        name: 'Series popular',
-        overview: 'Overview Serie',
-        releaseDate: '2021-01-01',
-        rating: 8.0,
-        rateCount: 100,
-        popularity: 2000,
-        posterPath: '/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg',
-        backdropPath: '/9faGSFi5jam6pDWGNd0p8JcJgXQ.jpg',
-      ),
-      const Series(
-        id: 120,
-        name: 'Serie popular 2',
-        overview: 'Overview serie 2',
-        releaseDate: '2024-01-01',
-        rating: 8.0,
-        rateCount: 100,
-        popularity: 2000,
-        posterPath: '/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg',
-        backdropPath: '/9faGSFi5jam6pDWGNd0p8JcJgXQ.jpg',
-      ),
-    ];
+    final List<Series> popularitySeriesList =
+        await repository.getPopularitySeries();
     emit(SeriesPopularityLoaded(popularitySeriesList: popularitySeriesList));
   }
 }

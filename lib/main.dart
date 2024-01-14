@@ -54,19 +54,23 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider<MovieRatingBloc>(
             create: (context) => MovieRatingBloc(
-              movieRatingRepository: context.read<MovieRatingRepository>(),
+              repository: context.read<MovieRatingRepository>(),
             )..add(MovieRatingLoad()),
           ),
           BlocProvider<MoviePopularityBloc>(
-            create: (context) =>
-                MoviePopularityBloc()..add(MoviePopularityLoad()),
+            create: (context) => MoviePopularityBloc(
+                repository: context.read<MoviePopularityRepository>())
+              ..add(MoviePopularityLoad()),
           ),
           BlocProvider<SeriesRatingBloc>(
-            create: (context) => SeriesRatingBloc()..add(SeriesRatingLoad()),
+            create: (context) => SeriesRatingBloc(
+                repository: context.read<SeriesRatingRepository>())
+              ..add(SeriesRatingLoad()),
           ),
           BlocProvider<SeriesPopularityBloc>(
-            create: (context) =>
-                SeriesPopularityBloc()..add(SeriesPopularityLoad()),
+            create: (context) => SeriesPopularityBloc(
+              repository: context.read<SeriesPopularityRepository>(),
+            )..add(SeriesPopularityLoad()),
           ),
           BlocProvider<CategoryFilterBloc>(
               create: (context) => CategoryFilterBloc()),

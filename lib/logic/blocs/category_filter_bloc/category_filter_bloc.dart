@@ -18,7 +18,7 @@ class CategoryFilterBloc
   ) async {
     if (event.categoryFilter == CategoryFilter.rating) {
       emit(CategoryFilterByRating());
-    } else if (event.categoryFilter == CategoryFilter.popular) {
+    } else if (event.categoryFilter == CategoryFilter.popularity) {
       emit(CategoryFilterByPopularity());
     } else {
       emit(CategoryFilterByRating());

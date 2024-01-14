@@ -1,4 +1,4 @@
 enum CategoryFilter {
   rating,
-  popular,
+  popularity,
 }

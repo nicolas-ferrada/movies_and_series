@@ -7,8 +7,14 @@ import 'package:movies_and_series/logic/blocs/series_popularity_bloc/series_popu
 import 'package:movies_and_series/logic/blocs/series_rating_bloc/series_rating_bloc.dart';
 import 'package:movies_and_series/presentation/widgets/pages_builder/home_page_builder.dart';
 
+import 'data/data_provider/movie_popularity_api.dart';
 import 'data/data_provider/movie_rating_api.dart';
+import 'data/data_provider/series_popularity_api.dart';
+import 'data/data_provider/series_rating_api.dart';
+import 'data/repositories/movie_popularity_repository.dart';
 import 'data/repositories/movie_rating_repository.dart';
+import 'data/repositories/series_popularity_repository.dart';
+import 'data/repositories/series_rating_repository.dart';
 import 'logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
 
 void main() async {
@@ -26,6 +32,21 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<MovieRatingRepository>(
           create: (context) => MovieRatingRepository(
             rawDataProvider: MovieRatingApi(),
+          ),
+        ),
+        RepositoryProvider<MoviePopularityRepository>(
+          create: (context) => MoviePopularityRepository(
+            rawDataProvider: MoviePopularityApi(),
+          ),
+        ),
+        RepositoryProvider<SeriesRatingRepository>(
+          create: (context) => SeriesRatingRepository(
+            rawDataProvider: SeriesRatingApi(),
+          ),
+        ),
+        RepositoryProvider<SeriesPopularityRepository>(
+          create: (context) => SeriesPopularityRepository(
+            rawDataProvider: SeriesPopularityApi(),
           ),
         ),
       ],

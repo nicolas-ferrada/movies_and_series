@@ -7,6 +7,8 @@ import 'package:movies_and_series/logic/blocs/series_popularity_bloc/series_popu
 import 'package:movies_and_series/logic/blocs/series_rating_bloc/series_rating_bloc.dart';
 import 'package:movies_and_series/presentation/widgets/pages_builder/home_page_builder.dart';
 
+import 'data/data_provider/movie_rating_api.dart';
+import 'data/repositories/movie_rating_repository.dart';
 import 'logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
 
 void main() async {
@@ -19,32 +21,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<MovieRatingBloc>(
-          create: (context) => MovieRatingBloc()..add(MovieRatingLoad()),
+        RepositoryProvider<MovieRatingRepository>(
+          create: (context) => MovieRatingRepository(
+            movieRatingProvider: MovieRatingApi(),
+          ),
         ),
-        BlocProvider<MoviePopularityBloc>(
-          create: (context) =>
-              MoviePopularityBloc()..add(MoviePopularityLoad()),
-        ),
-        BlocProvider<SeriesRatingBloc>(
-          create: (context) => SeriesRatingBloc()..add(SeriesRatingLoad()),
-        ),
-        BlocProvider<SeriesPopularityBloc>(
-          create: (context) =>
-              SeriesPopularityBloc()..add(SeriesPopularityLoad()),
-        ),
-        BlocProvider<CategoryFilterBloc>(
-            create: (context) => CategoryFilterBloc()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Movies and Series',
-        theme: ThemeData(
-          brightness: Brightness.dark,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<MovieRatingBloc>(
+            create: (context) => MovieRatingBloc(
+              movieRatingRepository: context.read<MovieRatingRepository>(),
+            )..add(MovieRatingLoad()),
+          ),
+          BlocProvider<MoviePopularityBloc>(
+            create: (context) =>
+                MoviePopularityBloc()..add(MoviePopularityLoad()),
+          ),
+          BlocProvider<SeriesRatingBloc>(
+            create: (context) => SeriesRatingBloc()..add(SeriesRatingLoad()),
+          ),
+          BlocProvider<SeriesPopularityBloc>(
+            create: (context) =>
+                SeriesPopularityBloc()..add(SeriesPopularityLoad()),
+          ),
+          BlocProvider<CategoryFilterBloc>(
+              create: (context) => CategoryFilterBloc()),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Movies and Series',
+          theme: ThemeData(
+            brightness: Brightness.dark,
+          ),
+          home: const HomePageBuilder(),
         ),
-        home: const HomePageBuilder(),
       ),
     );
   }

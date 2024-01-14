@@ -12,7 +12,7 @@ class MovieRatingRepository {
   Future<List<Movie>> getTopRatedMovies() async {
     try {
       // Get raw data from API
-      final dynamic rawData = await movieRatingProvider.getTopRatedMovies();
+      final dynamic rawData = await movieRatingProvider.getRawRatingMovie();
 
       // Get list of maps from raw data
       final List<Map<String, dynamic>> jsonList =

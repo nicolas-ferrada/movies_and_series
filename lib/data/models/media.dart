@@ -7,7 +7,7 @@ abstract class Media extends Equatable {
   final String releaseDate;
   final double rating;
   final int rateCount;
-  final int popularity;
+  final double popularity;
   final String posterPath;
   final String backdropPath;
 

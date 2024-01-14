@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/media.dart';
 import '../../logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import '../../logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
+import '../../logic/blocs/series_popularity_bloc/series_popularity_bloc.dart';
 import '../../logic/blocs/series_rating_bloc/series_rating_bloc.dart';
 import 'home_page.dart';
 
@@ -17,10 +18,13 @@ class HomePageBuild extends StatelessWidget {
         final movieRatingState = context.watch<MovieRatingBloc>().state;
         final moviePopularityState = context.watch<MoviePopularityBloc>().state;
         final seriesRatingState = context.watch<SeriesRatingBloc>().state;
+        final seriesPopularityState =
+            context.watch<SeriesPopularityBloc>().state;
 
         if (movieRatingState is MovieRatingLoading ||
             moviePopularityState is MoviePopularityLoading ||
-            seriesRatingState is SeriesRatingLoading) {
+            seriesRatingState is SeriesRatingLoading ||
+            seriesPopularityState is SeriesPopularityLoading) {
           return const Scaffold(
             body: Center(
               child: CircularProgressIndicator(),
@@ -28,11 +32,13 @@ class HomePageBuild extends StatelessWidget {
           );
         } else if (movieRatingState is MovieRatingLoaded &&
             moviePopularityState is MoviePopularityLoaded &&
-            seriesRatingState is SeriesRatingLoaded) {
+            seriesRatingState is SeriesRatingLoaded &&
+            seriesPopularityState is SeriesPopularityLoaded) {
           final List<Media> mediaList = [
             ...movieRatingState.ratingMovieList,
             ...moviePopularityState.popularityMovieList,
             ...seriesRatingState.ratingSeriesList,
+            ...seriesPopularityState.popularitySeriesList,
           ];
           return HomePage(
             mediaList: mediaList,
@@ -53,6 +59,12 @@ class HomePageBuild extends StatelessWidget {
           return Scaffold(
             body: Center(
               child: Text('Error: ${seriesRatingState.errorMessage}'),
+            ),
+          );
+        } else if (seriesPopularityState is SeriesPopularityError) {
+          return Scaffold(
+            body: Center(
+              child: Text('Error: ${seriesPopularityState.errorMessage}'),
             ),
           );
         }

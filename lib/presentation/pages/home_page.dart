@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_and_series/presentation/pages/media_details_page.dart';
 
 import '../../data/models/media.dart';
 import '../../logic/blocs/category_filter_bloc/category_filter_bloc.dart';
@@ -50,6 +51,7 @@ class HomePage extends StatelessWidget {
                   itemCount: mediaList.length,
                   itemBuilder: (context, index) {
                     return ListTile(
+                      onTap: () => navigateToMediaDetailsPage(context, index),
                       title: Text(mediaList[index].name),
                       subtitle: Text(mediaList[index].overview),
                     );
@@ -59,6 +61,18 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Future<void> navigateToMediaDetailsPage(
+    BuildContext context,
+    int index,
+  ) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MediaDetailsPage(media: mediaList[index]),
       ),
     );
   }

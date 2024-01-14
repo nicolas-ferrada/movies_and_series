@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [
         RepositoryProvider<MovieRatingRepository>(
           create: (context) => MovieRatingRepository(
-            movieRatingProvider: MovieRatingApi(),
+            rawDataProvider: MovieRatingApi(),
           ),
         ),
       ],

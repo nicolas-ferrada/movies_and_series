@@ -1,18 +1,18 @@
 import 'package:movies_and_series/data/services/json_decoder_service.dart';
 
-import '../data_provider/movie_rating_api.dart';
+import '../data_provider/movie_popularity_api.dart';
 import '../models/movie.dart';
 
-class MovieRatingRepository {
-  final MovieRatingApi rawDataProvider;
-  MovieRatingRepository({
+class MoviePopularityRepository {
+  final MoviePopularityApi rawDataProvider;
+  MoviePopularityRepository({
     required this.rawDataProvider,
   });
 
-  Future<List<Movie>> getTopRatedMovies() async {
+  Future<List<Movie>> getPopularityMovieList() async {
     try {
       // Get raw data from API
-      final dynamic rawData = await rawDataProvider.getRawRatingMovie();
+      final dynamic rawData = await rawDataProvider.getRawPopularityMovie();
 
       // Get list of maps from raw data
       final List<Map<String, dynamic>> jsonList =

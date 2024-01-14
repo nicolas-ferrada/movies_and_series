@@ -7,7 +7,9 @@ class ApiCall {
     required String endpoint,
   }) async {
     try {
-      if (Api.key == null) throw Exception('Api key not found');
+      if (Api.key == null || Api.key!.isEmpty) {
+        throw Exception('Api key not found');
+      }
       Uri url = Uri.parse(Api.baseUrl + endpoint);
       return await http.get(url, headers: {'Authorization': Api.key!});
     } catch (_) {

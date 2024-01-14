@@ -5,7 +5,7 @@ import 'package:movies_and_series/logic/blocs/category_filter_bloc/category_filt
 import 'package:movies_and_series/logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import 'package:movies_and_series/logic/blocs/series_popularity_bloc/series_popularity_bloc.dart';
 import 'package:movies_and_series/logic/blocs/series_rating_bloc/series_rating_bloc.dart';
-import 'package:movies_and_series/presentation/widgets/pages_builder/home_page_builder.dart';
+import 'package:movies_and_series/presentation/pages_builders/home_page_builder.dart';
 
 import 'data/data_provider/movie_popularity_api.dart';
 import 'data/data_provider/movie_rating_api.dart';

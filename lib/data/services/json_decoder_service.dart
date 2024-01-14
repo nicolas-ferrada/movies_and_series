@@ -10,7 +10,12 @@ class JsonDecoderService {
         throw Exception('Empty response while decoding json');
       }
 
-      final List<Map<String, dynamic>> jsonList = json['results'];
+      final List<dynamic> dynamicList = json['results'];
+
+      // Convert dynamic list to list of maps
+      final List<Map<String, dynamic>> jsonList =
+          dynamicList.cast<Map<String, dynamic>>();
+
       return jsonList;
     } catch (_) {
       rethrow;

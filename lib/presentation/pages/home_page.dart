@@ -51,6 +51,7 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(mediaList[index].name),
+                      subtitle: Text(mediaList[index].overview),
                     );
                   },
                 ),

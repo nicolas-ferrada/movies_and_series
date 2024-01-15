@@ -20,8 +20,11 @@ class MediaListViewComponent extends StatelessWidget {
           onTap: () => navigateToMediaDetailsPage(context, index),
           child: Padding(
             padding: const EdgeInsets.all(8),
-            child: MediaCover(
-              media: mediaList[index],
+            child: Hero(
+              tag: mediaList[index].id,
+              child: MediaCover(
+                media: mediaList[index],
+              ),
             ),
           ),
         );

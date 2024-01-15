@@ -13,11 +13,7 @@ class MediaCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        children: [
-          Image.network(Api.imageBaseUrl + media.posterPath),
-        ],
-      ),
+      child: Image.network(Api.imageBaseUrlBigSize + media.posterPath),
     );
   }
 }

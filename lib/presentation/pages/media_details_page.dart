@@ -28,7 +28,12 @@ class MediaDetailsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.network(Api.imageBaseUrl + media.backdropPath),
+                Hero(
+                  tag: media.id,
+                  child: Image.network(
+                    Api.imageBaseUrlMediumSize + media.posterPath,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
@@ -48,6 +53,12 @@ class MediaDetailsPage extends StatelessWidget {
                   child: Text(
                     media.overview,
                     textAlign: TextAlign.justify,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.network(
+                    Api.imageBaseUrlBigSize + media.backdropPath,
                   ),
                 ),
               ],

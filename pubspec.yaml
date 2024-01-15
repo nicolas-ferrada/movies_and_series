@@ -40,6 +40,7 @@ dependencies:
   bloc_test: ^9.1.5 # bloc testing
   flutter_dotenv: ^5.1.0 # env variables for sensitive data
   http: ^1.1.2 # http requests (api calls)
+  cached_network_image: ^3.3.1 # cache images
 
 dev_dependencies:
   flutter_test:

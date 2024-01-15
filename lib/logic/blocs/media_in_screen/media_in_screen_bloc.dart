@@ -7,7 +7,7 @@ part 'media_in_screen_event.dart';
 part 'media_in_screen_state.dart';
 
 class MediaInScreenBloc extends Bloc<MediaInScreenEvent, MediaInScreenState> {
-  MediaInScreenBloc() : super(MediaInScreenInitial()) {
+  MediaInScreenBloc() : super(MediaInScreenLoading()) {
     on<MediaInScreenUpdateMediaList>(_updateMediaList);
   }
 
@@ -16,6 +16,7 @@ class MediaInScreenBloc extends Bloc<MediaInScreenEvent, MediaInScreenState> {
     Emitter<MediaInScreenState> emit,
   ) {
     try {
+      emit(MediaInScreenLoading());
       emit(MediaInScreenMediaList(mediaList: event.mediaList));
     } catch (e) {
       emit(MediaInScreenError(errorMessage: e.toString()));

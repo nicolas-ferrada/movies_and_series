@@ -21,15 +21,16 @@ class MediaBuilder extends StatelessWidget {
         context
             .read<MediaInScreenBloc>()
             .add(MediaInScreenUpdateMediaList(mediaList: mediaList));
-
         if (state is MediaInScreenError) {
           return BasicScaffoldCenter(
             Text('Error: ${(state).errorMessage}'),
           );
         } else if (state is MediaInScreenMediaList) {
           return HomePage(
-            mediaList: (state).mediaList,
+            mediaList: state.mediaList,
           );
+        } else if (state is MediaInScreenLoading) {
+          return const BasicScaffoldCenter(CircularProgressIndicator());
         } else {
           return const BasicScaffoldCenter(
               Text('An unexpected error occured displaying the media'));

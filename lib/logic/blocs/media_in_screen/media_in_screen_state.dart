@@ -7,7 +7,7 @@ sealed class MediaInScreenState extends Equatable {
   List<Object> get props => [];
 }
 
-final class MediaInScreenInitial extends MediaInScreenState {}
+final class MediaInScreenLoading extends MediaInScreenState {}
 
 final class MediaInScreenMediaList extends MediaInScreenState {
   final List<Media> mediaList;
@@ -17,7 +17,7 @@ final class MediaInScreenMediaList extends MediaInScreenState {
   List<Object> get props => [mediaList];
 }
 
-class MediaInScreenError extends MediaInScreenState {
+final class MediaInScreenError extends MediaInScreenState {
   final String errorMessage;
   const MediaInScreenError({required this.errorMessage});
 

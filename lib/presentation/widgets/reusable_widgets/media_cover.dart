@@ -16,24 +16,6 @@ class MediaCover extends StatelessWidget {
       child: Column(
         children: [
           Image.network(Api.imageBaseUrl + media.posterPath),
-          Text(
-            media.name,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text('Release date: ${media.releaseDate}'),
-          Text('Rating: ${media.rating} (${media.rateCount} votes)'),
-          Text('Popularity: ${media.popularity}'),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              media.overview,
-              textAlign: TextAlign.center,
-            ),
-          ),
         ],
       ),
     );

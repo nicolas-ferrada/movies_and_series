@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_and_series/presentation/pages/home_page.dart';
 import 'package:movies_and_series/presentation/widgets/reusable_widgets/basic_scaffold.dart';
 
 import '../../data/models/media.dart';
 import '../../logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import '../../logic/blocs/series_popularity_bloc/series_popularity_bloc.dart';
+import 'media_builder.dart';
 
 class FilterByPopularityBuilder extends StatelessWidget {
   const FilterByPopularityBuilder({super.key});
@@ -27,7 +27,7 @@ class FilterByPopularityBuilder extends StatelessWidget {
             ...moviePopularityState.popularityMovieList,
             ...seriesPopularityState.popularitySeriesList,
           ];
-          return HomePage(
+          return MediaBuilder(
             mediaList: mediaList,
           );
         } else if (moviePopularityState is MoviePopularityError) {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_and_series/presentation/pages/home_page.dart';
 import 'package:movies_and_series/presentation/widgets/reusable_widgets/basic_scaffold.dart';
 
 import '../../data/models/media.dart';
 import '../../logic/blocs/movie_rating_bloc/movie_rating_bloc.dart';
 import '../../logic/blocs/series_rating_bloc/series_rating_bloc.dart';
+import 'media_builder.dart';
 
 class FilterByRatingBuilder extends StatelessWidget {
   const FilterByRatingBuilder({super.key});
@@ -22,11 +22,12 @@ class FilterByRatingBuilder extends StatelessWidget {
           return const BasicScaffoldCenter(CircularProgressIndicator());
         } else if (movieRatingState is MovieRatingLoaded &&
             seriesRatingState is SeriesRatingLoaded) {
+          // Create the initial mediaList
           final List<Media> mediaList = [
             ...movieRatingState.ratingMovieList,
             ...seriesRatingState.ratingSeriesList,
           ];
-          return HomePage(
+          return MediaBuilder(
             mediaList: mediaList,
           );
         } else if (movieRatingState is MovieRatingError) {

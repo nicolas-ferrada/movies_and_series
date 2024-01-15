@@ -9,9 +9,17 @@ sealed class MediaInScreenState extends Equatable {
 
 final class MediaInScreenLoading extends MediaInScreenState {}
 
-final class MediaInScreenMediaList extends MediaInScreenState {
+final class MediaInScreenFilter extends MediaInScreenState {
   final List<Media> mediaList;
-  const MediaInScreenMediaList({required this.mediaList});
+  const MediaInScreenFilter({required this.mediaList});
+
+  @override
+  List<Object> get props => [mediaList];
+}
+
+final class MediaInScreenFinalMediaList extends MediaInScreenState {
+  final List<Media> mediaList;
+  const MediaInScreenFinalMediaList({required this.mediaList});
 
   @override
   List<Object> get props => [mediaList];

@@ -11,8 +11,5 @@ class Api {
   static const String moviePopularityEndpoint = 'movie/popular';
 
   // Images
-  static const String imageBaseUrlMediumSize =
-      'https://image.tmdb.org/t/p/w200/';
-
-  static const String imageBaseUrlBigSize = 'https://image.tmdb.org/t/p/w300/';
+  static const String imageBaseUrl = 'https://image.tmdb.org/t/p/w300/';
 }

@@ -9,4 +9,7 @@ class Api {
   static const String seriesPopularityEndpoint = 'tv/popular';
   static const String movieTopRatedEndpoint = 'movie/top_rated';
   static const String moviePopularityEndpoint = 'movie/popular';
+
+  // Images
+  static const String imageBaseUrl = 'https://image.tmdb.org/t/p/w300/';
 }

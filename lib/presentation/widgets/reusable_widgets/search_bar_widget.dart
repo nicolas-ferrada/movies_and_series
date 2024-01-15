@@ -9,16 +9,14 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: SearchBar(
-        padding: const MaterialStatePropertyAll<EdgeInsets>(
-          EdgeInsets.symmetric(horizontal: 16),
-        ),
-        leading: const Icon(Icons.search),
-        hintText: 'Search here...',
-        onChanged: onChanged,
+    return SearchBar(
+      padding: const MaterialStatePropertyAll<EdgeInsets>(
+        EdgeInsets.symmetric(horizontal: 16),
       ),
+      elevation: const MaterialStatePropertyAll<double>(1),
+      leading: const Icon(Icons.search),
+      hintText: 'Search here...',
+      onChanged: onChanged,
     );
   }
 }

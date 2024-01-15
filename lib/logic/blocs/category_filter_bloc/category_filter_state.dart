@@ -7,8 +7,6 @@ sealed class CategoryFilterState extends Equatable {
   List<Object> get props => [];
 }
 
-
-
 final class CategoryFilterByRating extends CategoryFilterState {}
 
 final class CategoryFilterByPopularity extends CategoryFilterState {}

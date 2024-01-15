@@ -46,8 +46,9 @@ class _MediaBuilderState extends State<MediaBuilder> {
         } else if (state is MediaInScreenLoading) {
           return const BasicScaffoldCenter(CircularProgressIndicator());
         } else {
-          return BasicScaffoldCenter(Text(
-              'An unexpected error occured displaying the media ${state.runtimeType}'));
+          return const BasicScaffoldCenter(
+            Text('An unexpected error occured displaying the media'),
+          );
         }
       },
     );

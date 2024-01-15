@@ -7,8 +7,6 @@ sealed class SeriesRatingState extends Equatable {
   List<Object> get props => [];
 }
 
-final class SeriesRatingInitial extends SeriesRatingState {}
-
 final class SeriesRatingLoading extends SeriesRatingState {}
 
 final class SeriesRatingLoaded extends SeriesRatingState {

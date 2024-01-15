@@ -12,7 +12,7 @@ class SeriesPopularityBloc
   final SeriesPopularityRepository repository;
   SeriesPopularityBloc({
     required this.repository,
-  }) : super(SeriesPopularityInitial()) {
+  }) : super(SeriesPopularityLoading()) {
     on<SeriesPopularityLoad>(_onLoad);
   }
 

@@ -11,7 +11,7 @@ class MovieRatingBloc extends Bloc<MovieRatingEvent, MovieRatingState> {
   final MovieRatingRepository repository;
   MovieRatingBloc({
     required this.repository,
-  }) : super(MovieRatingInitial()) {
+  }) : super(MovieRatingLoading()) {
     on<MovieRatingLoad>(_onLoad);
   }
 

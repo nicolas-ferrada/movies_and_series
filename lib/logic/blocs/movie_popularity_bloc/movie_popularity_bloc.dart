@@ -13,7 +13,7 @@ class MoviePopularityBloc
 
   MoviePopularityBloc({
     required this.repository,
-  }) : super(MoviePopularityInitial()) {
+  }) : super(MoviePopularityLoading()) {
     on<MoviePopularityLoad>(_onLoad);
   }
 

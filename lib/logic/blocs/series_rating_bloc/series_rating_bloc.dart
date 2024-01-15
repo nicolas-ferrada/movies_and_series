@@ -11,7 +11,7 @@ class SeriesRatingBloc extends Bloc<SeriesRatingEvent, SeriesRatingState> {
   final SeriesRatingRepository repository;
   SeriesRatingBloc({
     required this.repository,
-  }) : super(SeriesRatingInitial()) {
+  }) : super(SeriesRatingLoading()) {
     on<SeriesRatingLoad>(_onLoad);
   }
 

@@ -7,8 +7,6 @@ sealed class MovieRatingState extends Equatable {
   List<Object> get props => [];
 }
 
-final class MovieRatingInitial extends MovieRatingState {}
-
 final class MovieRatingLoading extends MovieRatingState {}
 
 final class MovieRatingLoaded extends MovieRatingState {

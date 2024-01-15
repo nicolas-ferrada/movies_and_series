@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../data/api/api.dart';
 import '../../data/models/media.dart';
+import '../widgets/reusable_widgets/media_image.dart';
 
 class MediaDetailsPage extends StatelessWidget {
   final Media media;
@@ -30,8 +30,10 @@ class MediaDetailsPage extends StatelessWidget {
               children: [
                 Hero(
                   tag: media.id,
-                  child: Image.network(
-                    Api.imageBaseUrlMediumSize + media.posterPath,
+                  child: MediaImage(
+                    mediaUrl: media.posterPath,
+                    mediaId: media.id,
+                    height: 300,
                   ),
                 ),
                 Padding(
@@ -57,8 +59,10 @@ class MediaDetailsPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    Api.imageBaseUrlBigSize + media.backdropPath,
+                  child: MediaImage(
+                    mediaUrl: media.backdropPath,
+                    mediaId: media.id,
+                    width: 300,
                   ),
                 ),
               ],

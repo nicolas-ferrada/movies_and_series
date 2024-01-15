@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/models/media.dart';
 import '../../pages/media_details_page.dart';
-import '../reusable_widgets/media_cover.dart';
+import '../reusable_widgets/media_image.dart';
 
 class MediaListViewComponent extends StatelessWidget {
   final List<Media> mediaList;
@@ -22,8 +22,10 @@ class MediaListViewComponent extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             child: Hero(
               tag: mediaList[index].id,
-              child: MediaCover(
-                media: mediaList[index],
+              child: MediaImage(
+                mediaUrl: mediaList[index].posterPath,
+                mediaId: mediaList[index].id,
+                height: 400,
               ),
             ),
           ),

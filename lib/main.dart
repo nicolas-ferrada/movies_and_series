@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movies_and_series/logic/blocs/category_filter_bloc/category_filter_bloc.dart';
+import 'package:movies_and_series/logic/blocs/media_in_screen/media_in_screen_bloc.dart';
 import 'package:movies_and_series/logic/blocs/movie_popularity_bloc/movie_popularity_bloc.dart';
 import 'package:movies_and_series/logic/blocs/series_popularity_bloc/series_popularity_bloc.dart';
 import 'package:movies_and_series/logic/blocs/series_rating_bloc/series_rating_bloc.dart';
@@ -74,6 +75,8 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider<CategoryFilterBloc>(
               create: (context) => CategoryFilterBloc()),
+          BlocProvider<MediaInScreenBloc>(
+              create: (context) => MediaInScreenBloc()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/models/media.dart';
 import '../../pages/media_details_page.dart';
+import '../reusable_widgets/media_cover.dart';
 
 class MediaListViewComponent extends StatelessWidget {
   final List<Media> mediaList;
@@ -15,10 +16,14 @@ class MediaListViewComponent extends StatelessWidget {
     return ListView.builder(
       itemCount: mediaList.length,
       itemBuilder: (context, index) {
-        return ListTile(
+        return GestureDetector(
           onTap: () => navigateToMediaDetailsPage(context, index),
-          title: Text(mediaList[index].name),
-          subtitle: Text(mediaList[index].overview),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: MediaCover(
+              media: mediaList[index],
+            ),
+          ),
         );
       },
     );

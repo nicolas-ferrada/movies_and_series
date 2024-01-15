@@ -1,16 +1,34 @@
-# movies_and_series
+## Search for your favorite movies and series!
 
-A new Flutter project.
+Discover the world of top entertainment with our app, where you can easily find and explore top-rated and most popular series and movies. Whether you're a movie buff or a TV series fanatic, our app has got you covered.
 
-## Getting Started
+## Installation guide
+• Android: tap [here](https://github.com/nicolas-ferrada/movies_and_series/releases/latest/) to download the lastest APK file, then you can install it on your Android device.
 
-This project is a starting point for a Flutter application.
+• iOS: application is available for iOS, but cannot be installed since is not uploaded to the App Store.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies
+#### Main:
+• Flutter as the SDK.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+• Dart as the programming language.
+#### Secondary:
+• BLoC as the architectural pattern and state management solution.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+• The Movie Database API as the data source.
+
+## API Key
+The API Key is not stored on the repository. You need to create an '.env' file on the root of the application and write: 'APIKEY='.
+
+## Missing implementations
+Only one BloC have been tested with the corresponding unit testing, but every single BLoC would need to be tested at least by the following parameters:
+
+• Check initialization state.
+
+• Check the expected state output from a triggered event.
+
+• Modifying state does not throw exceptions.
+
+• BLoC correctly handles multiple incoming events.
+
+#### Other critital components to test are the repositories and data providers.

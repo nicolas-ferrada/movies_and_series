@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_and_series/presentation/pages/media_details_page.dart';
+import 'package:movies_and_series/presentation/widgets/component_widget/search_bar.dart';
 
 import '../../data/models/media.dart';
 import '../../logic/blocs/category_filter_bloc/category_filter_bloc.dart';
@@ -21,6 +22,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
+              const SearchBarComponent(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

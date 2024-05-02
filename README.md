@@ -8,27 +8,19 @@ Discover the world of top entertainment with our app, where you can easily find 
 • iOS: application is available for iOS, but cannot be installed since is not uploaded to the App Store.
 
 ## Technologies
-#### Main:
-• Flutter as the SDK.
+- **Dart** as the programming language.
 
-• Dart as the programming language.
-#### Secondary:
-• BLoC as the architectural pattern and state management solution.
+- **Flutter** as the framework.
 
-• The Movie Database API as the data source.
+- **BLoC** as the architectural pattern and state management solution.
+
+- **The Movie Database API** as the data source.
 
 ## API Key
 The API Key is not stored on the repository. You need to create an '.env' file on the root of the application and write: 'APIKEY='.
 
-## Missing implementations
-Only one BloC have been tested with the corresponding unit testing, but every single BLoC would need to be tested at least by the following parameters:
+## About the Development
+This project originated as a technical task for a company. It was created in three days, being a huge challenge.
 
-• Check initialization state.
-
-• Check the expected state output from a triggered event.
-
-• Modifying state does not throw exceptions.
-
-• BLoC correctly handles multiple incoming events.
-
-#### Other critital components to test are the repositories and data providers.
+## Acknowledgements
+I'm glad to have developed this project, as it made me realize the progress in my career path. It also helped me showcasing my recent skills, and thanks to that, I could secure my current job. An amazing experience!

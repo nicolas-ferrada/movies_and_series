@@ -19,7 +19,7 @@ Discover the world of top entertainment with our app, where you can easily find 
 ## API Key
 The API Key is not stored on the repository. You need to create an '.env' file on the root of the application and write: 'APIKEY='.
 
-## About the Development
+## About the development
 This project originated as a technical task for a company. It was created in three days, being a huge challenge.
 
 ## Acknowledgements
